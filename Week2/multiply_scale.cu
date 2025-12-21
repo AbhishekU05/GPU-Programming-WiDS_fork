@@ -1,6 +1,13 @@
 #include <cuda_runtime.h>
 #include <iostream>
 #include <cmath>
+#include <random>
+
+float rand_num() {
+    static std::mt19937 gen(std::random_device{}());
+    static std::uniform_real_distribution<float> dist(-1000.0f, 1000.0f);
+    return dist(gen);
+}
 
 __global__ void mulScale(const float* a, const float* b, float* c, float alpha, int n) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
@@ -20,8 +27,8 @@ int main() {
     float *h_ref = new float[N];
 
     for (int i = 0; i < N; i++) {
-        h_a[i] = i * 0.01f;
-        h_b[i] = i * 0.02f;
+        h_a[i] = rand_num();
+        h_b[i] = rand_num();
         h_ref[i] = alpha * h_a[i] * h_b[i];
     }
 
