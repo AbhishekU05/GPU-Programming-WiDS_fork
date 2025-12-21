@@ -45,7 +45,7 @@ int main() {
     for (int i = 0; i < N; i++) {
         if (std::fabs(h_y[i] - h_ref[i]) > 1e-6f) {
             flag = false;
-            std::cerr << "Mismatch at " << i << std::endl;
+            std::cerr << "Does not match" << std::endl;
             break;
         }
     }
