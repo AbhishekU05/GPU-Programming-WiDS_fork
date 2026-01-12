@@ -1,9 +1,4 @@
 # Final Mini-Project — GPU Acceleration of a Real Workload
-
-**GPU Programming using CUDA and Triton (WiDS'25)**  
-Abhineet Agarwal  
-Dept. of Electrical Engineering, IIT Bombay
-
 ---
 
 ## Overview
